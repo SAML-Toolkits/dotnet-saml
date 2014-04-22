@@ -123,7 +123,7 @@ namespace OneLogin
                 this.accountSettings = accountSettings;
 
                 id = "_" + System.Guid.NewGuid().ToString();
-                issue_instant = DateTime.Now.ToUniversalTime().ToString("yyyy-mm-ddTH:mm:ssZ");
+                issue_instant = DateTime.Now.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ");
             }
 
             public string GetRequest(AuthRequestFormat format)
