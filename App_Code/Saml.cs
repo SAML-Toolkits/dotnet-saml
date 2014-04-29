@@ -65,6 +65,7 @@ namespace OneLogin
             {
                 xmlDoc = new XmlDocument();
                 xmlDoc.PreserveWhitespace = true;
+                xmlDoc.XmlResolver = null;
                 xmlDoc.LoadXml(xml);
             }
 
