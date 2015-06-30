@@ -84,14 +84,8 @@ namespace OneLogin
                 XmlNodeList nodeList = xmlDoc.SelectNodes("//ds:Signature", manager);
 
                 SignedXml signedXml = new SignedXml(xmlDoc);
-                foreach (XmlNode node in nodeList)
-                {
-                    signedXml.LoadXml((XmlElement)node);
-                    status = signedXml.CheckSignature(certificate.cert, true);
-                    if (!status)
-                        return false;
-                }
-                return status;
+                signedXml.LoadXml((XmlElement)nodeList[0]);
+                return signedXml.CheckSignature(certificate.cert, true);
             }
 
             public string GetNameID()
