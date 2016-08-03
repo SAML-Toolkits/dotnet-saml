@@ -148,12 +148,13 @@ namespace OneLogin
 
                         xw.WriteStartElement("samlp", "RequestedAuthnContext", "urn:oasis:names:tc:SAML:2.0:protocol");
                         xw.WriteAttributeString("Comparison", "exact");
-                        xw.WriteEndElement();
 
                         xw.WriteStartElement("saml", "AuthnContextClassRef", "urn:oasis:names:tc:SAML:2.0:assertion");
                         xw.WriteString("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport");
                         xw.WriteEndElement();
-
+                        
+                        xw.WriteEndElement(); // RequestedAuthnContext
+                        
                         xw.WriteEndElement();
                     }
 
