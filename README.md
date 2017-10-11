@@ -6,3 +6,4 @@ Onelogin's is working on the release of a new toolkit for .NET, but it gonna tak
 - [ITfoxtec](http://itfoxtec.com/identitysaml2) (open source)
 - [Kentor](https://github.com/KentorIT/authservices) (open source)
 - [Owin.Security.Saml](https://github.com/elerch/SAML2) (open source)
+- [AspNetSaml](https://github.com/jitbit/AspNetSaml) (open source)
