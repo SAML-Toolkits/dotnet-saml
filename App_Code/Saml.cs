@@ -106,7 +106,7 @@ namespace OneLogin
 
                 var nodes = xmlDoc.SelectNodes("/samlp:Response/saml:Assertion/saml:Conditions", manager);
                 string value = null;
-                if (nodes != null && nodes.Count() > 0 && nodes[0] != null && nodes[0].Attributes != null && nodes[0].Attributes["NotBefore"] != null) {
+                if (nodes != null && nodes.Count > 0 && nodes[0] != null && nodes[0].Attributes != null && nodes[0].Attributes["NotBefore"] != null) {
                     value = nodes[0].Attributes["NotBefore"].Value;
                 }
                 return value != null ? DateTime.Parse(value) : (DateTime?)null;
@@ -119,7 +119,7 @@ namespace OneLogin
 
                 var nodes = xmlDoc.SelectNodes("/samlp:Response/saml:Assertion/saml:Conditions", manager);
                 string value = null;
-                if (nodes != null && nodes.Count() > 0 && nodes[0] != null && nodes[0].Attributes != null && nodes[0].Attributes["NotOnOrAfter"] != null) {
+                if (nodes != null && nodes.Count > 0 && nodes[0] != null && nodes[0].Attributes != null && nodes[0].Attributes["NotOnOrAfter"] != null) {
                     value = nodes[0].Attributes["NotOnOrAfter"].Value;
                 }
                 return value != null ? DateTime.Parse(value) : (DateTime?)null;
