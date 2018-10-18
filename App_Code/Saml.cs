@@ -21,7 +21,7 @@ namespace OneLogin
 {
     namespace Saml
     {
-        public class Certificate
+        public class Certificate : IDisposable
         {
             public X509Certificate2 cert;
 
@@ -46,9 +46,32 @@ namespace OneLogin
                 }
                 return bytes;
             }
+		#region Dispose added for .Net 4.6
+		bool disposed = false;
+		
+        public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+		
+		protected virtual void Dispose(bool disposing)
+		{
+			if (disposed)
+				return;
+
+			if (disposing)
+			{
+				cert.Dispose();
+			}
+
+			disposed = true;
+		}
+		#endregion
+
         }
 
-	    public class Response
+	    public class Response: IDisposable
 	    {
             private XmlDocument xmlDoc;
             private AccountSettings accountSettings;
@@ -135,6 +158,10 @@ namespace OneLogin
                 XmlNode node = xmlDoc.SelectSingleNode("/samlp:Response/saml:Assertion/saml:Subject/saml:NameID",manager);
                 return node.InnerText;
             }
+            public void Dispose()
+		    {
+			    certificate.Dispose();
+		    }
 	    }
 
         public class AuthRequest

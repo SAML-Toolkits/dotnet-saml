@@ -22,17 +22,19 @@ public partial class _Default : System.Web.UI.Page
         // replace with an instance of the users account.
         AccountSettings accountSettings = new AccountSettings();
         
-        OneLogin.Saml.Response samlResponse = new Response(accountSettings);
-        samlResponse.LoadXmlFromBase64(Request.Form["SAMLResponse"]);
+        using (OneLogin.Saml.Response samlResponse = new Response(accountSettings))
+        {
+            samlResponse.LoadXmlFromBase64(Request.Form["SAMLResponse"]);
 
-        if (samlResponse.IsValid())
-        {
-            Response.Write("OK!");
-            Response.Write(samlResponse.GetNameID());
-        }
-        else
-        {
-            Response.Write("Failed");
+            if (samlResponse.IsValid())
+            {
+                Response.Write("OK!");
+                Response.Write(samlResponse.GetNameID());
+            }
+            else
+            {
+                Response.Write("Failed");
+            }
         }
     }
 }
