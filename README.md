@@ -6,3 +6,4 @@ We can suggest some alternatives:
 - [ITfoxtec](http://itfoxtec.com/identitysaml2) (open source)
 - [Sustainsys](https://github.com/Sustainsys/Saml2) (formerly Kentor) (open source)
 - [Owin.Security.Saml](https://github.com/elerch/SAML2) (open source)
+- [AspNetSaml](https://github.com/jitbit/AspNetSaml) (open source)
